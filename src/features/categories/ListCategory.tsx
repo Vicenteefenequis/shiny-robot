@@ -2,7 +2,7 @@ import { Box, Button, IconButton, Typography } from "@mui/material";
 import { useAppSelector } from "../../app/hooks";
 import { selectCategories } from "./categorySlice";
 import { Link } from "react-router-dom";
-import { DataGrid, GridColDef, GridRenderCellParams, GridRowsProp } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRenderCellParams, GridRowsProp, GridToolbar } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
@@ -74,12 +74,20 @@ export const CategoryList = () => {
 				</Button>
 			</Box>
 
-			{/* {categories.map(category => (
-				<Typography key={category.id} variant='h2' component='h2'>{category.name}</Typography>
-			))} */}
 
 
 			<DataGrid
+				slots={{ toolbar: GridToolbar }}
+				disableRowSelectionOnClick
+				disableColumnSelector
+				disableColumnFilter
+				disableDensitySelector
+				slotProps={{
+					toolbar: {
+						showQuickFilter: true,
+						quickFilterProps: { debounceMs: 500 }
+					}
+				}}
 				rows={rows}
 				columns={columns}
 			/>
