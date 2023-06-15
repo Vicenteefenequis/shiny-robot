@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 
 interface Category {
 	id: string;
@@ -17,7 +18,7 @@ const category: Category = {
 	created_at: new Date().toISOString(),
 	updated_at: new Date().toISOString(),
 	deleted_at: null,
-	description: null
+	description: 'Grovy is a programming language',
 }
 
 
@@ -37,5 +38,11 @@ const categoriesSlice = createSlice({
 		updateCategory: (state, action) => { },
 	}
 })
+
+
+//selectors
+
+export const selectCategories = (state: RootState) => state.categories;
+
 
 export default categoriesSlice.reducer;
