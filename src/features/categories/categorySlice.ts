@@ -12,7 +12,7 @@ export interface Category {
 }
 
 const category: Category = {
-	id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a",
+	id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec111",
 	name: "Grovy",
 	is_active: false,
 	created_at: new Date().toISOString(),
@@ -24,18 +24,26 @@ const category: Category = {
 
 export const initialState = [
 	category,
-	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "React" },
-	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "Vue" },
-	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "Angular" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec112", name: "React" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec113", name: "Vue" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec114", name: "Angular" },
 ]
 
 const categoriesSlice = createSlice({
 	name: "categories",
 	initialState: initialState,
 	reducers: {
-		addCategory: (state, action) => { },
-		removeCategory: (state, action) => { },
-		updateCategory: (state, action) => { },
+		addCategory: (state, action) => {
+			state.push(action.payload)
+		},
+		removeCategory: (state, action) => {
+			const index = state.findIndex(category => category.id === action.payload.id);
+			state.splice(index, 1);
+		},
+		updateCategory: (state, action) => {
+			const index = state.findIndex(category => category.id === action.payload.id);
+			state[index] = action.payload;
+		},
 	}
 })
 
@@ -51,3 +59,4 @@ export const selectCategoryById = (state: RootState, categoryId: string) => {
 
 
 export default categoriesSlice.reducer;
+export const { addCategory, updateCategory, removeCategory } = categoriesSlice.actions;
