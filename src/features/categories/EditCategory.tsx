@@ -1,5 +1,5 @@
-import { Box, Button, FormControl, FormControlLabel, FormGroup, Grid, Paper, Switch, TextField, Typography } from "@mui/material";
-import { Link, useParams } from "react-router-dom";
+import { Box, Paper, Typography } from "@mui/material";
+import { useParams } from "react-router-dom";
 import { useAppSelector } from "../../app/hooks";
 import { selectCategoryById } from "./categorySlice";
 import { useState } from "react";
