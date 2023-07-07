@@ -12,7 +12,7 @@ interface Category {
 }
 
 const category: Category = {
-	id: "uuid1",
+	id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a",
 	name: "Grovy",
 	is_active: false,
 	created_at: new Date().toISOString(),
@@ -24,9 +24,9 @@ const category: Category = {
 
 export const initialState = [
 	category,
-	{ ...category, id: "uuid2", name: "React" },
-	{ ...category, id: "uuid3", name: "Vue" },
-	{ ...category, id: "uuid4", name: "Angular" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "React" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "Vue" },
+	{ ...category, id: "2f3c75de-ff57-4b1b-a6db-5ef8245ec11a", name: "Angular" },
 ]
 
 const categoriesSlice = createSlice({
@@ -43,6 +43,11 @@ const categoriesSlice = createSlice({
 //selectors
 
 export const selectCategories = (state: RootState) => state.categories;
+
+export const selectCategoryById = (state: RootState, categoryId: string) => {
+	const category = state.categories.find(category => category.id === categoryId)
+	return category || {} as Category
+};
 
 
 export default categoriesSlice.reducer;
