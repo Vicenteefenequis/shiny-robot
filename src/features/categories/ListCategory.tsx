@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { removeCategory, selectCategories } from "./categorySlice";
+import { removeCategory, selectCategories, useGetCategoriesQuery } from "./categorySlice";
 import { Link } from "react-router-dom";
 import { DataGrid, GridColDef, GridRenderCellParams, GridRowsProp, GridToolbar } from '@mui/x-data-grid';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -8,9 +8,12 @@ import { useSnackbar } from "notistack";
 
 
 export const CategoryList = () => {
+	const { data, isFetching, error } = useGetCategoriesQuery()
 	const categories = useAppSelector(selectCategories);
 	const dispatch = useAppDispatch()
 	const { enqueueSnackbar } = useSnackbar()
+
+	console.log(data?.data)
 
 	const componentProps = {
 		toolbar: {
