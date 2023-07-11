@@ -19,9 +19,9 @@ export const EditCastMember = () => {
     id: "",
     name: "",
     type: 1,
-    createdAt: "",
-    updatedAt: "",
-    deletedAt: "",
+    created_at: "",
+    updated_at: "",
+    deleted_at: "",
   });
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {

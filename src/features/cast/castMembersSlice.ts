@@ -14,9 +14,9 @@ export const initialState: CastMember = {
   id: "",
   name: "",
   type: 0,
-  createdAt: "",
-  updatedAt: "",
-  deletedAt: null,
+  created_at: "",
+  updated_at: "",
+  deleted_at: null,
 };
 
 function parseQueryParams(params: CastMemberParams) {
