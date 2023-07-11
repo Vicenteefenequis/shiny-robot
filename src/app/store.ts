@@ -5,14 +5,11 @@ import {
   combineReducers,
   PreloadedState,
 } from "@reduxjs/toolkit";
-import categoriesReducer, {
-  categoriesApiSlice,
-} from "../features/categories/categorySlice";
+import { categoriesApiSlice } from "../features/categories/categorySlice";
 import { apiSlice } from "../features/api/apiSlice";
 import { castMembersApiSlice } from "../features/cast/castMembersSlice";
 
 const rootReducer = combineReducers({
-  categories: categoriesReducer,
   [apiSlice.reducerPath]: apiSlice.reducer,
   [categoriesApiSlice.reducerPath]: apiSlice.reducer,
   [castMembersApiSlice.reducerPath]: castMembersApiSlice.reducer,
