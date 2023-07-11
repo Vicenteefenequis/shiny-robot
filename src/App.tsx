@@ -9,6 +9,7 @@ import { CategoryCreate } from "./features/categories/CreateCategory";
 import { CategoryEdit } from "./features/categories/EditCategory";
 import { Typography } from "@mui/material";
 import { SnackbarProvider } from "notistack";
+import { ListCastMembers } from "./features/cast/ListCastMembers";
 
 function App() {
   return (
@@ -29,9 +30,12 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<CategoryList />} />
+
               <Route path="/categories" element={<CategoryList />} />
               <Route path="/categories/create" element={<CategoryCreate />} />
               <Route path="/categories/edit/:id" element={<CategoryEdit />} />
+
+              <Route path="/cast-members" element={<ListCastMembers />} />
 
               <Route
                 path="*"
