@@ -146,6 +146,7 @@ exports[`CreateCategory should render correctly 1`] = `
                   >
                     <span
                       class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary Mui-checked PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorSecondary Mui-checked Mui-checked css-priqlz-MuiButtonBase-root-MuiSwitch-switchBase"
+                      data-testid="is_active"
                     >
                       <input
                         aria-label="controlled"
