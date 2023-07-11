@@ -17,6 +17,12 @@ export const handlers = [
     }
     return res(ctx.json(categoryResponse), ctx.delay(150));
   }),
+  rest.delete(
+    `${baseUrl}/categories/7e924ac9-5818-4d85-8e17-84b750d4a061`,
+    (_, res, ctx) => {
+      return res(ctx.delay(150), ctx.status(204));
+    }
+  ),
 ];
 
 const server = setupServer(...handlers);
@@ -91,6 +97,49 @@ describe("ListCategory", () => {
     await waitFor(() => {
       const loading = screen.getByRole("progressbar");
       expect(loading).toBeInTheDocument();
+    });
+  });
+
+  it("should handle delete category success", async () => {
+    renderWithProviders(<CategoryList />);
+
+    await waitFor(() => {
+      const name = screen.getByText("Plum");
+      expect(name).toBeInTheDocument();
+    });
+
+    const deleteButton = screen.getAllByTestId("delete-button")[0];
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText("Category deleted successfully")
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("should handle delete category error", async () => {
+    server.use(
+      rest.delete(
+        `${baseUrl}/categories/7e924ac9-5818-4d85-8e17-84b750d4a061`,
+        (_, res, ctx) => {
+          return res(ctx.delay(150), ctx.status(500));
+        }
+      )
+    );
+
+    renderWithProviders(<CategoryList />);
+
+    await waitFor(() => {
+      const name = screen.getByText("Plum");
+      expect(name).toBeInTheDocument();
+    });
+
+    const deleteButton = screen.getAllByTestId("delete-button")[0];
+    fireEvent.click(deleteButton);
+
+    await waitFor(() => {
+      expect(screen.getByText("Category not deleted")).toBeInTheDocument();
     });
   });
 });

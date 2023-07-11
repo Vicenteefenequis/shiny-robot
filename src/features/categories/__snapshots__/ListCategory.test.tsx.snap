@@ -24,7 +24,7 @@ exports[`ListCategory should render list category correctly 1`] = `
       class="MuiBox-root css-1fat0eg"
     >
       <div
-        aria-colcount="4"
+        aria-colcount="3"
         aria-multiselectable="false"
         aria-rowcount="1"
         class="MuiDataGrid-root MuiDataGrid-root--densityStandard css-1e2bxag-MuiDataGrid-root"
@@ -369,10 +369,10 @@ exports[`ListCategory should render list category correctly 1`] = `
                 </div>
                 <div
                   aria-colindex="3"
-                  aria-label="Created At"
+                  aria-label="Actions"
                   aria-sort="none"
                   class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-                  data-field="createdAt"
+                  data-field="id"
                   role="columnheader"
                   style="height: 56px; width: 0px; min-width: 0; max-width: 0;"
                   tabindex="-1"
@@ -392,7 +392,7 @@ exports[`ListCategory should render list category correctly 1`] = `
                           class="MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle"
                           data-mui-internal-clone-element="true"
                         >
-                          Created At
+                          Actions
                         </div>
                       </div>
                       <div
