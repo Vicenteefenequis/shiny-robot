@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import {
   useDeleteCategoryMutation,
   useGetCategoriesQuery,
@@ -52,6 +52,10 @@ export const CategoryList = () => {
       enqueueSnackbar("Category not deleted", { variant: "error" });
     }
   }, [deleteCategoryStatus, enqueueSnackbar]);
+
+  if (error) {
+    return <Typography variant="h4">Error fetching categories</Typography>;
+  }
 
   return (
     <Box maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
