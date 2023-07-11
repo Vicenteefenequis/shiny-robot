@@ -9,6 +9,15 @@ export const categoryResponse = {
       created_at: "2023-07-11T17:43:25+0000",
       updated_at: "2023-07-11T17:43:25+0000",
     },
+    {
+      id: "7e924ac9-5818-4d85-8e17-84b750d4a062",
+      name: "PapayaWhip",
+      description: "Ratione repellat harum illum qui optio quaerat.",
+      is_active: true,
+      deleted_at: null,
+      created_at: "2023-07-11T17:43:25+0000",
+      updated_at: "2023-07-11T17:43:25+0000",
+    },
   ],
   links: {
     first: "http://localhost:8000/api/categories?page=1",
