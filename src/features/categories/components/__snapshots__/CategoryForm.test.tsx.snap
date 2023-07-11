@@ -38,6 +38,7 @@ exports[`CategoryForm should render category form correctly 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                  data-testid="name"
                   id=":r0:"
                   name="name"
                   required=""
@@ -89,6 +90,7 @@ exports[`CategoryForm should render category form correctly 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                  data-testid="description"
                   id=":r1:"
                   name="description"
                   required=""
@@ -224,6 +226,7 @@ exports[`CategoryForm should render category form with loading state 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                  data-testid="name"
                   id=":r2:"
                   name="name"
                   required=""
@@ -275,6 +278,7 @@ exports[`CategoryForm should render category form with loading state 1`] = `
                 <input
                   aria-invalid="false"
                   class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                  data-testid="description"
                   id=":r3:"
                   name="description"
                   required=""
