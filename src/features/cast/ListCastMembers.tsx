@@ -71,7 +71,7 @@ export const ListCastMembers = () => {
           variant="contained"
           color="secondary"
           component={Link}
-          to="/categories/create"
+          to="/cast-members/create"
           style={{ marginBottom: "1rem" }}
         >
           New Cast Member

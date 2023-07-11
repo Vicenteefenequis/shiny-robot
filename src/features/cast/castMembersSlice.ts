@@ -48,7 +48,7 @@ function updateCastMember(castMember: CastMember) {
   return {
     url: `${endpointUrl}/${castMember.id}`,
     method: "PUT",
-    data: castMember,
+    body: castMember,
   };
 }
 
@@ -56,7 +56,7 @@ function createCastMember(castMember: CastMember) {
   return {
     url: endpointUrl,
     method: "POST",
-    data: castMember,
+    body: castMember,
   };
 }
 

@@ -10,6 +10,8 @@ import { CategoryEdit } from "./features/categories/EditCategory";
 import { Typography } from "@mui/material";
 import { SnackbarProvider } from "notistack";
 import { ListCastMembers } from "./features/cast/ListCastMembers";
+import { CastMemberCreate } from "./features/cast/CreateCastMember";
+import { EditCastMember } from "./features/cast/EditCastMember";
 
 function App() {
   return (
@@ -36,6 +38,16 @@ function App() {
               <Route path="/categories/edit/:id" element={<CategoryEdit />} />
 
               <Route path="/cast-members" element={<ListCastMembers />} />
+
+              <Route
+                path="/cast-members/create"
+                element={<CastMemberCreate />}
+              />
+
+              <Route
+                path="/cast-members/edit/:id"
+                element={<EditCastMember />}
+              />
 
               <Route
                 path="*"
