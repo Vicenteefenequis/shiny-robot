@@ -1,5 +1,3 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../../app/store";
 import { apiSlice } from "../api/apiSlice";
 import {
   CastMemberParams,
