@@ -1,14 +1,11 @@
 import React, { PropsWithChildren } from "react";
 import { render } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
-import { configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import type { RootState } from "../app/store";
+import { setupStore, type AppStore, type RootState } from "../app/store";
 // As a basic setup, import your same slice reducers
-import { castMembersApiSlice } from "../features/cast/castMembersSlice";
-import { apiSlice } from "../features/api/apiSlice";
 import { SnackbarProvider } from "notistack";
 import { BrowserRouter } from "react-router-dom";
 
@@ -16,19 +13,12 @@ import { BrowserRouter } from "react-router-dom";
 // as allows the user to specify other things such as initialState, store.
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
   preloadedState?: PreloadedState<RootState>;
-  store?: ReturnType<typeof configureStore>;
+  store?: AppStore;
 }
 
 export function renderWithProviders(
   ui: React.ReactElement,
-  {
-    store = configureStore({
-      reducer: {
-        [castMembersApiSlice.reducerPath]: apiSlice.reducer,
-      },
-    }),
-    ...renderOptions
-  }: ExtendedRenderOptions = {}
+  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
     return (
@@ -43,3 +33,5 @@ export function renderWithProviders(
   // Return an object with the store and all of RTL's query functions
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
+
+export * from "@testing-library/react";
