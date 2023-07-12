@@ -63,4 +63,34 @@ describe("EditCategory", () => {
       expect(screen.getByText("Success updated category!")).toBeInTheDocument();
     });
   });
+
+  it("should handle error", async () => {
+    server.use(
+      rest.put(`${baseUrl}/categories/1`, (_, res, ctx) => {
+        return res(ctx.delay(150), ctx.status(500));
+      })
+    );
+
+    renderWithProviders(<CategoryEdit />);
+
+    const name = screen.getByTestId("name");
+    const description = screen.getByTestId("description");
+    const is_active = screen.getByTestId("is_active");
+
+    await waitFor(() => {
+      expect(name).toHaveValue("Category 1");
+    });
+
+    const submitButton = screen.getByText("Save");
+
+    fireEvent.change(name, { target: { value: "Category 2" } });
+    fireEvent.change(description, { target: { value: "Description 2" } });
+    fireEvent.click(is_active);
+
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText("Error updating category!")).toBeInTheDocument();
+    });
+  });
 });
