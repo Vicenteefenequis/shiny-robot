@@ -57,6 +57,7 @@ exports[`CreateCastMember should render create cast member correctly 1`] = `
                     <input
                       aria-invalid="false"
                       class="MuiInputBase-input MuiOutlinedInput-input css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input"
+                      data-testid="name"
                       id=":r0:"
                       name="name"
                       required=""
