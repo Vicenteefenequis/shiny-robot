@@ -501,6 +501,7 @@ exports[`CastMembersTable should render castMembers table correctly 1`] = `
                     <button
                       aria-label="delete"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-1gws2xf-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="delete-button"
                       tabindex="0"
                       type="button"
                     >
@@ -1685,6 +1686,7 @@ exports[`CastMembersTable should render castMembers table with loading state 1`]
                     <button
                       aria-label="delete"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-1gws2xf-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="delete-button"
                       tabindex="0"
                       type="button"
                     >
@@ -2299,6 +2301,7 @@ exports[`CastMembersTable should render correct type 1`] = `
                     <button
                       aria-label="delete"
                       class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-1gws2xf-MuiButtonBase-root-MuiIconButton-root"
+                      data-testid="delete-button"
                       tabindex="0"
                       type="button"
                     >
